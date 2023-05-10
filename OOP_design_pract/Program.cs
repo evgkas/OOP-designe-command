@@ -1,19 +1,4 @@
-﻿/*Напишите программу, принимающую из консоли следующую информацию об автомобиле: марка, модель, количество, стоимость 
-  одной единицы. После ввода наименований автомобилей, программа должна запросить у пользователя команду. При получении 
-  команд программа должна выдать следующую информацию:
-
-count types - количество марок автомобилей;
-
-count all - общее количество автомобилей;
-
-average price - средняя стоимость автомобиля;
-
-average price type - средняя стоимость автомобилей каждой марки (марка задается пользователем), например average price 
-volvo
-
-При получении команды exit программа должна завершиться. Использовать паттерны проектирвоания Singleton, Command */
-
-using OOP_design_pract;
+﻿using OOP_design_pract;
 
 public interface ICommand
 {
@@ -43,7 +28,7 @@ class Program
                 Console.WriteLine("Quaintity must be positive int value \nQuaintity:");
                 quaintityToClean = Console.ReadLine();
             }
-            Console.WriteLine("Price: !!!разделитель запятая");
+            Console.WriteLine("Price: (use , as separator)");
             string priceToClean = Console.ReadLine();
             double price = 0;
             while ((!double.TryParse(priceToClean, out price)) || (Convert.ToDouble(priceToClean) <= 0))
@@ -56,7 +41,7 @@ class Program
         
         Invoker invoker = new Invoker();
 
-        bool commandCheck = false;  //exit from cicle
+        bool exitCheck = false;  //exit from cicle
         do
         {
             Console.WriteLine("Enter command. Enter exit to exit");
@@ -75,24 +60,21 @@ class Program
                 {
                     case ("count types"):
                         ICommand CountTypes = new CountTypes(cars);
-
                         invoker.SetCommand(CountTypes);
                         invoker.ExecuteCommand();
                         break;
                     case ("count all"):          
                         ICommand CountAll = new CountAll(cars);
-
                         invoker.SetCommand(CountAll);
                         invoker.ExecuteCommand();
                         break;
                     case ("average price"):
                         ICommand PriceAverage = new PriceAverage(cars);
-
                         invoker.SetCommand(PriceAverage);
                         invoker.ExecuteCommand();
                         break;
                     case ("exit"):
-                        commandCheck = true;
+                        exitCheck = true;
                         break;
                     default:
                         Console.WriteLine("Invalid command");
@@ -100,7 +82,7 @@ class Program
                 }
             }
         }
-        while (!commandCheck);
+        while (!exitCheck);
     }
 }
 
@@ -116,6 +98,5 @@ public class Invoker
     public void ExecuteCommand()
     {
         _command.Execute();
-
     }
 }

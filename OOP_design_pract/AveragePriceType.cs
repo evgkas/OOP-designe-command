@@ -18,7 +18,7 @@
                                select c.price;
             try
             {
-                double result = findedModels.Average(); //need to add exception
+                double result = findedModels.Average();
                 Console.WriteLine($"Average Price {modelToFind} = {result}");
             }
             catch (InvalidOperationException)
