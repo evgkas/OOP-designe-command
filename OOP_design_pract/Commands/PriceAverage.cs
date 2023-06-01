@@ -1,4 +1,4 @@
-﻿namespace OOP_design_pract
+﻿namespace OOP_design_pract.Commands
 {
     public class PriceAverage : ICommand
     {

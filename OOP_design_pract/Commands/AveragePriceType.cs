@@ -1,4 +1,4 @@
-﻿namespace OOP_design_pract
+﻿namespace OOP_design_pract.Commands
 {
     public class AveragePriceType : ICommand
     {
@@ -12,7 +12,7 @@
         }
 
         public void Execute()
-        {            
+        {
             var findedModels = from c in cars
                                where c.brand.ToLower() == modelToFind
                                select c.price;

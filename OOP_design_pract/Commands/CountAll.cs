@@ -1,4 +1,4 @@
-﻿namespace OOP_design_pract
+﻿namespace OOP_design_pract.Commands
 {
     public class CountAll : ICommand
     {
@@ -10,8 +10,8 @@
         }
 
         public void Execute()
-        {            
-            var count = cars.Select(car => car.quaintity).Sum();            
+        {
+            var count = cars.Select(car => car.quaintity).Sum();
             Console.WriteLine($"CountAll result: {count}");
         }
     }

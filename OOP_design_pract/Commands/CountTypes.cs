@@ -1,17 +1,17 @@
-﻿namespace OOP_design_pract
+﻿namespace OOP_design_pract.Commands
 {
     public class CountTypes : ICommand
     {
-        private List<Car> _cars;
+        private List<Car> cars;
 
         public CountTypes(List<Car> cars)
         {
-            _cars = cars;
+            this.cars = cars;
         }
 
         public void Execute()
         {
-            var count = _cars.Select(car => car.brand).Distinct().Count();
+            var count = cars.Select(car => car.brand).Distinct().Count();
             Console.WriteLine($"CountTypes result: {count}");
         }
     }
