@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OOP_design_pract
+﻿namespace OOP_design_pract
 {
     public class Invoker
     {
@@ -17,7 +11,7 @@ namespace OOP_design_pract
 
         public void ExecuteCommand()
         {
-            this.command.Execute();
+            command.Execute();
         }
     }
 }
